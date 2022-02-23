@@ -9,5 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public interface DeporteRepositorioJpa extends JpaRepository<DeporteEntidad, Long> {
-
+ 
 }
