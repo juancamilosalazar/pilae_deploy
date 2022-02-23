@@ -2,6 +2,7 @@ main\com\example\multimodule\transversal\mensajes\implementacion\CacheMensajes.c
 main\com\example\multimodule\transversal\utilitarios\ParametroDTO.class
 main\com\example\multimodule\transversal\excepciones\PILAETransversalExepcion.class
 main\com\example\multimodule\transversal\utilitarios\UtilTexto.class
+test\com\example\multimodule\transversal\UtilTextoTest.class
 main\com\example\multimodule\transversal\respuesta\Respuesta.class
 main\com\example\multimodule\transversal\excepciones\PILAEDominioExcepcion.class
 main\com\example\multimodule\transversal\mensajes\CodigosMensajes$CodigosPartidoControlador.class
