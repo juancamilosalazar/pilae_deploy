@@ -2,7 +2,7 @@ spring:
   application:
     name: pilae-service
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://ec2-54-83-1-101.compute-1.amazonaws.com:5432/d4i46i1a76b73k?user=wjtyvwvaefahuq&password=61a66c4b254ff71ee5258d54378bc5e84ebfd2288960ee906d00af8f0e422c93&sslmode=require}
+    url: ${DATABASE_URL:jdbc:postgresql://ec2-54-159-35-35.compute-1.amazonaws.com:5432/daim8god4b1mh?user=dzaeodsgqcoznj&password=86902f87801cd7af734fe9eae0afdc4865d324e919fa3dd89de556e485b37bbd&sslmode=require}
     driver-class-name: org.postgresql.Driver
     platform: postgres
   flyway:
