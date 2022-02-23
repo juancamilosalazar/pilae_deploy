@@ -20,12 +20,17 @@ com\example\multimodule\servicio\fachada\MarcadorFachada.class
 com\example\multimodule\servicio\fachada\implementacion\EquipoFachadaImplementacion.class
 com\example\multimodule\servicio\negocio\impl\PosicionServicioImpl.class
 com\example\multimodule\servicio\negocio\PosicionServicio.class
+test\java\com\example\multimodule\servicio\negocio\MarcadorServicioImplTest.class
 com\example\multimodule\servicio\ensamblador\dto\implementacion\TorneoEnsamblador.class
 com\example\multimodule\servicio\negocio\DeporteServicio.class
 com\example\multimodule\servicio\fachada\implementacion\MarcadorFachadaImplementacion.class
+test\java\com\example\multimodule\servicio\negocio\TorneoServicioImplTest.class
 com\example\multimodule\servicio\ensamblador\entidad\implementacion\DeporteEnsambladorEntidad.class
+test\java\com\example\multimodule\servicio\negocio\PosicionServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\PartidoServicioImplTest.class
 com\example\multimodule\servicio\utilitario\PartidoConvertorUtilitario.class
 com\example\multimodule\servicio\negocio\TorneoServicio.class
+test\java\com\example\multimodule\servicio\negocio\EquipoServicioImplTest.class
 com\example\multimodule\servicio\utilitario\EquipoConvertorUtilitario.class
 com\example\multimodule\servicio\negocio\PartidoServicio.class
 com\example\multimodule\servicio\fachada\PosicionFachada.class
@@ -47,7 +52,9 @@ com\example\multimodule\servicio\ensamblador\dto\implementacion\MarcadorEnsambla
 com\example\multimodule\servicio\ensamblador\dto\implementacion\PosicionEnsamblador.class
 com\example\multimodule\servicio\fachada\implementacion\JugadorFachadaImplementacion.class
 com\example\multimodule\servicio\ensamblador\dto\EnsambladorDTO.class
+test\java\com\example\multimodule\servicio\negocio\DeporteServicioImplTest.class
 com\example\multimodule\servicio\negocio\MarcadorServicio.class
 com\example\multimodule\servicio\ensamblador\entidad\implementacion\PosicionEnsambladorEntidad.class
+test\java\com\example\multimodule\servicio\negocio\JugadorServicioImplTest.class
 com\example\multimodule\servicio\fachada\implementacion\DeporteFachadaImplementacion.class
 com\example\multimodule\servicio\negocio\impl\DeporteServicioImpl.class

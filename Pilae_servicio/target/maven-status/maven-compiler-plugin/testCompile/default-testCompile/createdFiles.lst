@@ -1,1 +1,8 @@
+test\java\com\example\multimodule\servicio\negocio\PosicionServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\JugadorServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\PartidoServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\MarcadorServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\DeporteServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\EquipoServicioImplTest.class
+test\java\com\example\multimodule\servicio\negocio\TorneoServicioImplTest.class
 test\java\com\example\multimodule\servicio\utilitario\DeporteConvertorUtilitario.class
