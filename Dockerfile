@@ -87,6 +87,7 @@ COPY Pilae_transversal/src /opt/app/Pilae_transversal
 
 
 
+
 FROM openjdk:11.0.11-slim
 WORKDIR /opt/app
 ADD Pilae_controlador/target/Pilae_controlador-0.0.1-SNAPSHOT.jar /usr/share/Pilae_controlador-0.0.1-SNAPSHOT.jar
