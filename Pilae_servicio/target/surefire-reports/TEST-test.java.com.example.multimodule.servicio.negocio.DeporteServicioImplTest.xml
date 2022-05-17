@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" time="0.265" errors="0" skipped="0">
+<testsuite tests="9" failures="0" name="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" time="0.474" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.7+10-b765.53"/>
@@ -64,13 +64,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnCrearPorDeporteExistente" time="0.069"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLevantarExcepcionEnActualizar" time="0.011"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerPorId" time="0.014"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerTodos" time="0.01"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeBorrar" time="0.09"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeRetornarDeporteDominio" time="0.019"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeActualizar" time="0.017"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeObtenerDeportePorId" time="0.018"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnCrear" time="0.017"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnCrearPorDeporteExistente" time="0.121"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLevantarExcepcionEnActualizar" time="0.021"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerPorId" time="0.023"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerTodos" time="0.02"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeBorrar" time="0.184"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeRetornarDeporteDominio" time="0.03"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeActualizar" time="0.026"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeObtenerDeportePorId" time="0.028"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.DeporteServicioImplTest" name="debeLanzarPilaeExcepcionEnCrear" time="0.021"/>
 </testsuite>

@@ -30,6 +30,6 @@ public class JugadorEntidad implements Serializable {
 
 
     @JoinColumn(name = "id_equipo", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private EquipoEntidad fkEquipo;
 }

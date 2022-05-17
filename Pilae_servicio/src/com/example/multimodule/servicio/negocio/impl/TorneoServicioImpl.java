@@ -86,8 +86,9 @@ public class TorneoServicioImpl implements TorneoServicio {
                 throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
             }
         }
-        ObtenerDeporteDelTorneo(deporteId,dominio);
+
         TorneoEntidad entidad = TorneoEnsambladorEntidad.obtenerTorneoEnsambladorEntidad().ensamblarEntidad(dominio);
+        entidad.setFkDeporte(ObtenerDeporteDelTorneo(deporteId));
         repositorio.save(entidad);
     }
 
@@ -139,14 +140,13 @@ public class TorneoServicioImpl implements TorneoServicio {
         actual.setDescripcion(nuevo.getDescripcion());
     }
 
-    private void ObtenerDeporteDelTorneo(Long deporteId, TorneoDominio dominio) {
+    private DeporteEntidad ObtenerDeporteDelTorneo(Long deporteId) {
         DeporteEntidad deporteEntidad =deporteRepositorioJpa.findById(deporteId).orElseThrow(()->{
             String mensajeUsuario = "Deporte no encontrado";
             String mensajeTecnico = "Deporte no encontrado";
             throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
         });
-        DeporteDominio deporteDominio = DeporteConvertorUtilitario.convertirDeporteEntidadEnDeporteDominio(deporteEntidad);
-        dominio.setFkDeporte(deporteDominio);
+        return deporteEntidad;
     }
 
 }

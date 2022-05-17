@@ -1,11 +1,15 @@
 package com.example.multimodule.entidad;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -22,8 +26,8 @@ public class EquipoEntidad implements Serializable {
     @Column(name = "genero")
     private String genero;
 
-    @JoinColumn(name = "id_torneo")
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "id_torneo", nullable = false)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private TorneoEntidad fkTorneo;
 
 

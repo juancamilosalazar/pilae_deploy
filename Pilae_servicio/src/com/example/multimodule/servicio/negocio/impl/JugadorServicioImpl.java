@@ -85,8 +85,9 @@ public class JugadorServicioImpl implements JugadorServicio {
                 throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
             }
         }
-        obtenerEquipoDelJugador(equipoId,dominio);
+
         JugadorEntidad entidad = JugadorEnsambladorEntidad.obtenerJugadorEnsambladorEntidad().ensamblarEntidad(dominio);
+        entidad.setFkEquipo(obtenerEquipoEntidad(equipoId));
         repositorio.save(entidad);
     }
 
@@ -158,20 +159,11 @@ public class JugadorServicioImpl implements JugadorServicio {
         actual.setFechaNacimiento(nuevo.getFechaNacimiento());
     }
 
-    private void obtenerEquipoDelJugador(Long equipoId, JugadorDominio dominio) {
-        EquipoEntidad equipoEntidad =equipoRepositorioJpa.findById(equipoId).orElseThrow(()->{
-            String mensajeUsuario = "Torneo no encontrado";
-            String mensajeTecnico = "Torneo no encontrado";
-            throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
-        });
-        EquipoDominio equipoDominio = EquipoConvertorUtilitario.convertirEquipoEntidadEnEquipoDominio(equipoEntidad);
-        dominio.setFkEquipo(equipoDominio);
-    }
 
     private EquipoEntidad obtenerEquipoEntidad(Long equipoId) {
         EquipoEntidad equipoEntidad =equipoRepositorioJpa.findById(equipoId).orElseThrow(()->{
-            String mensajeUsuario = "Torneo no encontrado";
-            String mensajeTecnico = "Torneo no encontrado";
+            String mensajeUsuario = "Equipo no encontrado";
+            String mensajeTecnico = "Equipo no encontrado";
             throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
         });
         return equipoEntidad;

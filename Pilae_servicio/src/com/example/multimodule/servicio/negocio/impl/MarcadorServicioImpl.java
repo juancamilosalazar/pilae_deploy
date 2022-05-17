@@ -89,8 +89,9 @@ public class MarcadorServicioImpl  implements MarcadorServicio {
                 throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
             }
         }
-        ObtenerEquipoDelMarcador(partidoId,dominio);
+
         MarcadorEntidad entidad = MarcadorEnsambladorEntidad.obtenerMarcadorEnsambladorEntidad().ensamblarEntidad(dominio);
+        entidad.setFkPartido(obtenerPartidoEntidad(partidoId));
         repositorio.save(entidad);
     }
 
@@ -182,15 +183,6 @@ public class MarcadorServicioImpl  implements MarcadorServicio {
         actual.setFkPartido(nuevo.getFkPartido());
     }
 
-    private void ObtenerEquipoDelMarcador(Long partidoId, MarcadorDominio dominio) {
-        PartidoEntidad partidoEntidad = partidoRepositorioJpa.findById(partidoId).orElseThrow(()->{
-            String mensajeUsuario = "Partido no encontrado";
-            String mensajeTecnico = "Partido no encontrado";
-            throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
-        });
-        PartidoDominio partidoDominio = PartidoConvertorUtilitario.convertirPartidoEntidadEnPartidoDominio(partidoEntidad);
-        dominio.setFkPartido(partidoDominio);
-    }
 
     private PartidoEntidad obtenerPartidoEntidad(Long partidoId) {
         PartidoEntidad partidoEntidad = partidoRepositorioJpa.findById(partidoId).orElseThrow(()->{

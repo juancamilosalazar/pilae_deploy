@@ -5,6 +5,13 @@ pilae:
 #  oauth2:
 #    client-id: 0oawgjdsnNuSuIS8T356
 #    issuer: https://dev-583268.okta.com/oauth2/default
+server:
+  port : 8081
+
+okta:
+  oauth2:
+    client-id: 0oawgjdsnNuSuIS8T356
+    issuer: https://dev-583268.okta.com/oauth2/default
 
 logging:
   level:

@@ -24,10 +24,7 @@ import main.com.example.multimodule.transversal.utilitarios.UtilTexto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class PartidoServicioImpl implements PartidoServicio {
@@ -72,7 +69,7 @@ public class PartidoServicioImpl implements PartidoServicio {
         if(entidadList.isEmpty()){
             String mensajeUsuario = "la lista de Partidos está vacía";
             String mensajeTecnico = "la lista de Partidos está vacía";
-            throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
+            return new ArrayList<>();
         }else{
             List<PartidoDominio> dominios = PartidoEnsambladorEntidad.obtenerPartidoEnsambladorEntidad().ensamblarListaDominio(entidadList);
             return dominios;
@@ -116,10 +113,12 @@ public class PartidoServicioImpl implements PartidoServicio {
                 throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
             }
         }
-        dominio.setFkEquipoLocal(ObtenerEquipoDelPartido(equipoLocal));
-        dominio.setFkEquipoVisitante(ObtenerEquipoDelPartido(equipoVisitante));
-        ObtenerTorneoDeLPartido(torneoId,dominio);
+        dominio.setFechaDelPartido(new Date().getTime());
+        dominio.setEstadoPartido("sin jugar");
         PartidoEntidad entidad = PartidoEnsambladorEntidad.obtenerPartidoEnsambladorEntidad().ensamblarEntidad(dominio);
+        entidad.setFkTorneo(obtenerTorneoEntidad(torneoId));
+        entidad.setFkEquipoLocal(ObtenerEquipoDelPartido(equipoLocal));
+        entidad.setFkEquipoVisitante(ObtenerEquipoDelPartido(equipoVisitante));
         repositorio.save(entidad);
     }
 
@@ -174,7 +173,7 @@ public class PartidoServicioImpl implements PartidoServicio {
             throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
         }
 
-        PartidoDominio resultadosConsulta = obtenerPorId(id);
+        PartidoEntidad resultadosConsulta = ObtenerPartidoDelMarcador(id);
 
         if (UtilObjeto.objetoEsNulo(resultadosConsulta)) {
             String mensajeUsuario = "Partido no existe";
@@ -183,12 +182,11 @@ public class PartidoServicioImpl implements PartidoServicio {
         }
 
         cambiarValoresAPartidoJugado(resultadosConsulta);
-        marcadorDominio.setFkPartido(resultadosConsulta);
         MarcadorEntidad marcadorEntidad = MarcadorEnsambladorEntidad.obtenerMarcadorEnsambladorEntidad().ensamblarEntidad(marcadorDominio);
+        marcadorEntidad.setFkPartido(resultadosConsulta);
         marcadorRepositorio.save(marcadorEntidad);
-        PartidoEntidad entidad = PartidoEnsambladorEntidad.obtenerPartidoEnsambladorEntidad().ensamblarEntidad(resultadosConsulta);
-        actualizarTablaDePosiciones(entidad,marcadorDominio.getEquipoLocalMrc(),marcadorDominio.getEquipoVisitanteMrc());
-        repositorio.save(entidad);
+        actualizarTablaDePosiciones(resultadosConsulta,marcadorDominio.getEquipoLocalMrc(),marcadorDominio.getEquipoVisitanteMrc());
+        repositorio.save(resultadosConsulta);
     }
 
     @Override
@@ -254,7 +252,7 @@ public class PartidoServicioImpl implements PartidoServicio {
         }
     }
 
-    private void cambiarValoresAPartidoJugado(PartidoDominio resultadosConsulta) {
+    private void cambiarValoresAPartidoJugado(PartidoEntidad resultadosConsulta) {
         resultadosConsulta.setEstadoPartido("jugado");
     }
 
@@ -320,31 +318,31 @@ public class PartidoServicioImpl implements PartidoServicio {
     }
 
     private void cambiarValores(PartidoDominio nuevo, PartidoDominio actual) {
-        actual.setEstadoPartido(nuevo.getEstadoPartido());
+        actual.setEstadoPartido("sin jugar");
         actual.setFechaDelPartido(nuevo.getFechaDelPartido());
         actual.setIdaVuelta(nuevo.getIdaVuelta());
         actual.setRonda(nuevo.getRonda());
     }
 
-    private EquipoDominio ObtenerEquipoDelPartido(Long equipoId) {
+    private EquipoEntidad ObtenerEquipoDelPartido(Long equipoId) {
         EquipoEntidad equipoEntidad =equipoRepositorioJpa.findById(equipoId).orElseThrow(()->{
             String mensajeUsuario = "Torneo no encontrado";
             String mensajeTecnico = "Torneo no encontrado";
             throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
         });
-        EquipoDominio equipoDominio = EquipoConvertorUtilitario.convertirEquipoEntidadEnEquipoDominio(equipoEntidad);
-        return equipoDominio;
+        return equipoEntidad;
     }
 
-    private void ObtenerTorneoDeLPartido(Long torneoId, PartidoDominio dominio) {
-        TorneoEntidad torneo = torneoRepositorioJpa.findById(torneoId).orElseThrow(()->{
-            String mensajeUsuario = "Torneo no encontrado";
-            String mensajeTecnico = "Torneo no encontrado";
+    private PartidoEntidad ObtenerPartidoDelMarcador(Long id) {
+        PartidoEntidad resultadosConsulta = repositorio.findById(id).orElseThrow(()->{
+            String mensajeUsuario = "Partido no existe";
+            String mensajeTecnico = "Partido no existe";
             throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
         });
-        TorneoDominio torneoDominio = TorneoConvertorUtilitario.convertirTorneoEntidadEnTorneoDominio(torneo);
-        dominio.setFkTorneo(torneoDominio);
+        return resultadosConsulta;
     }
+
+
 
     private TorneoEntidad ObtenerTorneoEntidad(Long torneoId) {
         TorneoEntidad torneo = torneoRepositorioJpa.findById(torneoId).orElseThrow(()->{

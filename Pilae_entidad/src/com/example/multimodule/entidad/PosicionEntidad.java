@@ -37,10 +37,10 @@ public class PosicionEntidad implements Serializable {
     private int puntos;
 
     @JoinColumn(name = "id_equipo", nullable = false)
-    @OneToOne(optional = false, cascade = CascadeType.MERGE)
+    @OneToOne(optional = false, cascade = CascadeType.PERSIST)
     private EquipoEntidad fkEquipo;
 
     @JoinColumn(name = "id_torneo", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private TorneoEntidad fkTorneo;
 }

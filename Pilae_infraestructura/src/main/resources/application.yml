@@ -2,6 +2,10 @@ spring:
   application:
     name: pilae-service
   datasource:
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 600000
+      maxLifetime: 1800000
     url: ${DATABASE_URL:jdbc:postgresql://ec2-54-159-35-35.compute-1.amazonaws.com:5432/daim8god4b1mh?user=dzaeodsgqcoznj&password=86902f87801cd7af734fe9eae0afdc4865d324e919fa3dd89de556e485b37bbd&sslmode=require}
     driver-class-name: org.postgresql.Driver
     platform: postgres

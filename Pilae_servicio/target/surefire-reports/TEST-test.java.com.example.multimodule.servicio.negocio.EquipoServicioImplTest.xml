@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" time="0.192" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" time="0.254" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.7+10-b765.53"/>
@@ -64,16 +64,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeRetornarEquipoDominio" time="0.035"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnActualizar" time="0.026"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLevantarExcepcionEnActualizar" time="0.011"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerPorId" time="0.012"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerTodos" time="0.018"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeBorrar" time="0.015"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnCrearPorEquipoExistente" time="0.011"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeActualizar" time="0.018"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeCrearTorneo" time="0.02"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnCrear" time="0.008"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeObtenerEquipoPorId" time="0.009"/>
-  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarExcepcionPorTorneo" time="0.009"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeRetornarEquipoDominio" time="0.063"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnActualizar" time="0.032"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLevantarExcepcionEnActualizar" time="0.015"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerPorId" time="0.016"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnObtenerTodos" time="0.017"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeBorrar" time="0.014"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnCrearPorEquipoExistente" time="0.013"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeActualizar" time="0.017"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeCrearTorneo" time="0.025"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarPilaeExcepcionEnCrear" time="0.016"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeObtenerEquipoPorId" time="0.013"/>
+  <testcase classname="test.java.com.example.multimodule.servicio.negocio.EquipoServicioImplTest" name="debeLanzarExcepcionPorTorneo" time="0.013"/>
 </testsuite>

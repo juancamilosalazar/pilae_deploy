@@ -65,7 +65,6 @@ public class PartidoFachadaImplementacion implements PartidoFachada {
         servicio.borrar(id);
     }
 
-    //TODO REALIZAR METODOS
     @Override
     public void crear(Partido partido, Long idLocal, Long idVisitante, Long torneoId) {
         if (UtilObjeto.objetoEsNulo(partido)) {

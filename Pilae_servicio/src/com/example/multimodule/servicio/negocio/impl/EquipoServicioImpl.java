@@ -91,8 +91,9 @@ public class EquipoServicioImpl  implements EquipoServicio {
                 throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
             }
         }
-        ObtenerTorneoDelPartido(torneoId,equipoDominio);
+
         EquipoEntidad equipoEntidad = EquipoEnsambladorEntidad.obtenerEquipoEnsambladorEntidad().ensamblarEntidad(equipoDominio);
+        equipoEntidad.setFkTorneo(obtenerTorneoEntidad(torneoId));
         equipoRepositorio.save(equipoEntidad);
         crearTablaDePosiciones(equipoEntidad);
     }
@@ -165,15 +166,6 @@ public class EquipoServicioImpl  implements EquipoServicio {
         equipo.setNombre(equipoNuevo.getNombre());
     }
 
-    private void ObtenerTorneoDelPartido(Long torneoId, EquipoDominio equipo) {
-        TorneoEntidad torneo =torneoRepositorio.findById(torneoId).orElseThrow(()->{
-            String mensajeUsuario = "Torneo no encontrado";
-            String mensajeTecnico = "Torneo no encontrado";
-            throw PILAEDominioExcepcion.crear(TipoExcepcionEnum.NEGOCIO, mensajeUsuario, mensajeTecnico);
-        });
-        TorneoDominio torneoDominio = TorneoConvertorUtilitario.convertirTorneoEntidadEnTorneoDominio(torneo);
-        equipo.setFkTorneo(torneoDominio);
-    }
     private TorneoEntidad obtenerTorneoEntidad(Long torneoId) {
         TorneoEntidad torneo =torneoRepositorio.findById(torneoId).orElseThrow(()->{
             String mensajeUsuario = "Torneo no encontrado";

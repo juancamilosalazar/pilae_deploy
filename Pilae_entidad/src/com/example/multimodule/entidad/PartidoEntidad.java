@@ -32,14 +32,14 @@ public class PartidoEntidad implements Serializable {
 
 
     @JoinColumn(name = "id_equipo_local", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private EquipoEntidad fkEquipoLocal;
 
     @JoinColumn(name = "id_equipo_visitante", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private EquipoEntidad fkEquipoVisitante;
 
     @JoinColumn(name = "id_torneo", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private TorneoEntidad fkTorneo;
 }
